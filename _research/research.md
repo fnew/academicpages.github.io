@@ -1,13 +1,15 @@
 ---
-title: "Statistical methods for associating host genetics with the functional potential of the microbiome"
-collection: research_interest
-permalink: /research_interest/research_interest
+permalink: /research
+title: "Research Interests and Projects"
 excerpt: 'Brief description of my research interests.'
+author_profile: true
+redirect_from:
+  - /research/
+  - /research.html
 ---
 
-My current research interests and projects
-==========================================
-
+Statistical methods for associating host genetics with the functional potential of the microbiome
+-------------------------------------------------------------------------------------------------
 I develop and apply statistical and computational methods for application to high dimensional data problems, namely within the human gut microbiome. 
 
 1) What role does host genetics play in shaping the taxonomic or functional composition of the human gut microbiome?
