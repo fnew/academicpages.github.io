@@ -10,9 +10,7 @@ redirect_from:
 
 Hi!
 
-About me
---------
-This is the academic page for Felicia New. I am a PhD candidate in Genetics, Genomics, & Development at Cornell University. I am in the lab of Dr. Ilana Brito. I am interested in how the human gut microbiome affects human health and how genetics may play a role. I use and develop a variety of computational and statistical tools to investigate this relationship.
+This is the personal page for Felicia New. I am a PhD candidate in Genetics, Genomics, & Development at Cornell University. I am in the lab of Dr. Ilana Brito. I am interested in how the human gut microbiome affects human health and how genetics may play a role. I use and develop a variety of computational and statistical tools to investigate this relationship.
 
 To more see more about our awesome lab, [Check out the Brito Lab Website here!](https://www.britolab.org)
 
