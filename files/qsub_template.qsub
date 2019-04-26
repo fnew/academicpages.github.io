@@ -1,0 +1,17 @@
+#Example qsub script
+#$ -S /bin/bash 	#This is what you are using this to run this qsub file
+#$ -N Job1     		#this is what you are naming this job when you are submitting it 
+#$ -V
+#$ -e /path/to/your/error/log
+#$ -o /path/to/your/out/log
+#$ -wd /path/to/working/directory
+#$ -l h_vmem=1G 	#how much memory do you want
+#$ -q long.q@cbsubrito  #Send this to the long queue at cbsubrito
+
+
+
+myprogram -i options_file.txt -o output_file.txt
+echo my program finished!
+
+
+#To submit this script run: qsub qsub_template.qsub
