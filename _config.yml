@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Felicia New | HOME"
+title                    : "Home"
 title_separator          : "-"
 name                     : &name "Felicia New"
 description              : &description "PhD Candidate in Genomics"
