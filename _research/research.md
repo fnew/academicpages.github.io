@@ -1,6 +1,6 @@
 ---
 layout: archive
-permalink: /research/
+permalink: /research/research.md
 title: "Research Interests and Projects"
 excerpt: 'Brief description of my research interests.'
 author_profile: true
