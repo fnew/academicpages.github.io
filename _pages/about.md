@@ -15,7 +15,6 @@ This is the personal page for Felicia New. I am a PhD candidate in Genetics, Gen
 To more see more about our awesome lab, [Check out the Brito Lab website here!](https://www.britolab.org)
 
 [Download my CV here](http://fnew.github.io/files/FeliciaNewCV.pdf)
-[Download my CV here](http://fnew.github.io/files/FeliciaNewCV.pdf)
 
 Recent News
 -----------
