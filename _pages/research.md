@@ -1,4 +1,5 @@
 ---
+layout: archive
 permalink: /research
 title: "Research Interests and Projects"
 excerpt: 'Brief description of my research interests.'
@@ -6,6 +7,8 @@ author_profile: true
 redirect_from:
   - /research/
 ---
+
+{% include base_path %}
 
 Statistical methods for associating host genetics with the functional potential of the microbiome
 -------------------------------------------------------------------------------------------------
