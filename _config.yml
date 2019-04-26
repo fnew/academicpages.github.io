@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Felicia New"
+title                    : "Felicia New | HOME"
 title_separator          : "-"
 name                     : &name "Felicia New"
 description              : &description "PhD Candidate in Genomics"
@@ -187,7 +187,9 @@ collections:
   talks:
     output: true
     permalink: /:collection/:path/
-
+  research:
+    output: true
+    permalink: /:collection/:path/
 
 # Defaults
 defaults:
