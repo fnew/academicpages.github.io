@@ -5,7 +5,6 @@ excerpt: 'Brief description of my research interests.'
 author_profile: true
 redirect_from:
   - /research/
-  - /research.html
 ---
 
 Statistical methods for associating host genetics with the functional potential of the microbiome
