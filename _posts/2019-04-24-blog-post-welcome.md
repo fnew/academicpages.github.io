@@ -1,9 +1,9 @@
 ---
 title: 'Welcome!'
 date: 2019-04-25
-permalink: /posts/2019/04/blog-post-1/
+permalink: /posts/2019/04/blog-post-welcome/
 tags:
-  - cool posts
+  - welcome
   - introduction
 ---
 
