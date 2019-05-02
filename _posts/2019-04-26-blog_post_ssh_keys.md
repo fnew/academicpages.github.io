@@ -1,7 +1,7 @@
 ---
 title: 'Setting up SSH Keys'
 data: 2019-04-26
-permalink: /posts/2019/04/blog_post_4/
+permalink: /posts/2019/04/blog_post_ssh_keys/
 tags:
   - ssh
   - server
