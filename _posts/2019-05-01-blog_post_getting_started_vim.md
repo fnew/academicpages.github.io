@@ -1,7 +1,7 @@
 ---
 title: 'Getting started with Vim'
-data: 2019-04-26
-permalink: /posts/2019/05/blog_post_6/
+data: 2019-05-01
+permalink: /posts/2019/05/blog_post_getting_started_vim/
 tags:
   - vi
   - vim
