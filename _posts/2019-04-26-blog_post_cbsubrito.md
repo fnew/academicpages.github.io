@@ -1,7 +1,7 @@
 ---
 title: 'Getting started on CBSUBrito'
 data: 2019-04-26
-permalink: /posts/2019/04/blog_post_2/
+permalink: /posts/2019/04/blog_post_cbsubrito/
 tags:
   - server
   - SGE
