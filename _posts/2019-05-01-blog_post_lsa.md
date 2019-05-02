@@ -1,6 +1,6 @@
 ---
 title: 'Using Latent Strain Analysis (LSA)'
-data: 2019-04-26
+data: 2019-05-01
 permalink: /posts/2019/05/blog_post_lsa/
 tags:
   - strain
