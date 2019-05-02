@@ -1,7 +1,7 @@
 ---
 title: 'Using RStudio Server'
 data: 2019-04-26
-permalink: /posts/2019/04/blog_post_3/
+permalink: /posts/2019/04/blog_post_rstudio_server/
 tags:
   - Rstudio
   - server
