@@ -1,7 +1,7 @@
 ---
 title: 'Using Latent Strain Analysis (LSA)'
 data: 2019-04-26
-permalink: /posts/2019/05/blog_post_5/
+permalink: /posts/2019/05/blog_post_lsa/
 tags:
   - strain
   - server
