@@ -39,7 +39,7 @@ To use the SGE queue manager, you need to make a shell script. I always name my 
 
 You can check the status of that job with:
   
-        qsub run_myjob.qsub 
+        qstat run_myjob.qsub 
         
  You can add options to the 'qstat' command such as 'qstat -u fnn3' if you want to see only jobs owned by user fnn3.
  You can delete a job using:
