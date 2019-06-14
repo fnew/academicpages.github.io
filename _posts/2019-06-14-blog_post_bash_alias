@@ -54,4 +54,5 @@ I use aliases for ssh commands, common bash command combinations, and for moving
 
 `alias rstud="/programs/rstudio_server/rstudio_start"` #Starting Rstudio Server
 
+There are many guides available online for setting up and understanding aliases. [Here is one such website with good explanations and 30 useful aliases for bash](https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html). [Here is another set of examples and useful aliases](https://www.digitalocean.com/community/tutorials/an-introduction-to-useful-bash-aliases-and-functions). And finally, [here are a blog and video about aliases](https://mijingo.com/blog/creating-bash-aliases).
 
