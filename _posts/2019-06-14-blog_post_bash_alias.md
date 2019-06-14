@@ -29,8 +29,7 @@ A bash alias has the following structure:
  
 Each alias is on a new line and begins with the command `alias`, followed by your desired shortcut, an `=`, and then the full command that you do not want to type anymore. 
 
-Example:
---------
+### Example:
 
 Using combinations of options with `ls` on the command line is very useful, but can get clunky. A common command is: `ls -lhaG`. (This tells the shell to list the contects of a directory in long format, showing hidden files, with human-readable sizes, and hide the group names.) Instead of typing `ls -lhaG` everytime, it would be much easier to type `ll`.
 
