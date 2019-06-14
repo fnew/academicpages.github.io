@@ -1,13 +1,13 @@
 ---
-title: 'Using aliases in bash'
+title: 'Using Aliases in Bash'
 data: 2019-06-14
 permalink: /posts/2019/06/blog_post_bash_alias/
 tags:
   - bash
   - alias
-  - shell
   - command line
 ---
+
 
 What are aliases in bash?
 -------------------------
