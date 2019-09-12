@@ -139,19 +139,19 @@ IMPORTANT: Add these lines to the scripts for 7a and 7b:
 ---
 Writing matrix rows to separate files, and computing local (sample) conditioning:
 
-`python LSFScripts/create_jobs.py -j KmerCorpus -i $WRK`					
+`python LSFScripts/create_jobs.py -j KmerCorpus -i $WRK`<br/>
 `qsub LSFScripts/KmerCorpus_ArrayJob.q`
 
 
-May create file ‘core’ in LatentStrainAnalysis directory.
-Creates one `.../hashed_reads/*count.hash.conditioned` file per sample
-MEMORY: 60G per sample
-TIME: 15 min per sample
+May create file ‘core’ in LatentStrainAnalysis directory if the job fails.<br/>
+Creates one `.../hashed_reads/*count.hash.conditioned` file per sample<br/>
+MEMORY: 60G per sample<br/>
+TIME: 15 min per sample<br/>
 NOTE: These jobs must all complete to continue. Relaunch any that failed.
 
 IMPORTANT: Add these lines to the scripts for 7a and 7b:
 
-`export PATH=/programs/Anaconda2/bin:$PATH  `                       		
+`export PATH=/programs/Anaconda2/bin:$PATH  `<br/>
 `export LD_LIBRARY_PATH=/programs/Anadonda2/lib:$LD_LIBRARY_PATH`
 
 
@@ -159,22 +159,22 @@ Step 8
 ------
 Calculating the streaming SVD
 
-`python LSFScripts/create_jobs.py -j KmerLSI -i $WRK`						
+`python LSFScripts/create_jobs.py -j KmerLSI -i $WRK`<br/>
 `qsub  LSFScripts/KmerLSI_Job.q`
 
-MEMORY: 60G, distributed
-TIME: 7.115 hrs (64 small samples), 6.030 hrs (12 large samples), scales with the number of samples. For very large matrices, this one will probably take a couple days to complete.
+MEMORY: 60G, distributed<br/>
+TIME: 7.115 hrs (64 small samples), 6.030 hrs (12 large samples), scales with the number of samples. For very large matrices, this one will probably take a couple days to complete.<br/>
 Will produce `cluster_vectors/kmer_lsi.gensim`.
 
 Add these to the submission script:
 
-`export PYRO_SERIALIZERS_ACCEPTED=serpent,json,marshal,pickle`						
-`export PYRO_SERIALIZER=pickle`								
-`export PATH=/programs/Anaconda2/bin:$PATH`                					
+`export PYRO_SERIALIZERS_ACCEPTED=serpent,json,marshal,pickle`<br/>
+`export PYRO_SERIALIZER=pickle`<br/>
+`export PATH=/programs/Anaconda2/bin:$PATH`<br/>
 `export LD_LIBRARY_PATH=/programs/Anadonda2/lib:$LD_LIBRARY_PATH`			
 
 
-Script has to be run in a screen like this: `bash KmerLSI_Job.q` (I do not know why, it just does).
+Script has to be run in a screen like this: `bash KmerLSI_Job.q` (I do not know why, it just does).<br/>
 This step ran for 11 hours on this dataset. 
 
 
@@ -186,7 +186,7 @@ Kmer clustering
 ---
 Create the cluster index
 
-`python LSFScripts/create_jobs.py -j KmerClusterIndex -i $WRK`						
+`python LSFScripts/create_jobs.py -j KmerClusterIndex -i $WRK`<br/>
 `qsub  LSFScripts/KmerClusterIndex_Job.q`
 	
 This step will set the k-mer cluster seeds, and the number of these seeds ultimately affects the resolution of partitioning. It is highly recommended that you check cluster_vectors/numClusters.txt for the number of clusters. If the resolution is markedly different from the expected / desired resolution, this job should be re-run with a different `-t` value in the submission script. From the manual: 
@@ -195,7 +195,7 @@ This step will set the k-mer cluster seeds, and the number of these seeds ultima
 	
 NOTE: Add this to the submission script
 
-`export PATH=/programs/Anaconda2/bin:$PATH`                        
+`export PATH=/programs/Anaconda2/bin:$PATH`<br/>
 `export LD_LIBRARY_PATH=/programs/Anadonda2/lib:$LD_LIBRARY_PATH`
 
 Remember to edit directory paths in the submission script.
@@ -211,10 +211,10 @@ Cluster blocks of k-mers:
 
 `$ qsub  LSFScripts/KmerClusterParts_ArrayJob.q`
 
-The number of tasks is: 2 ** hash size / 10e6 + 1
-You get hash size from the CreateHash_Job.q script, it is `-s`. This is set to 31 by default. So the number of tasks is 2,148.
-This step creates numbered directories in ./cluster_vectors/ for the number of clusters
-TIME: 1 min per task, 2148 tasks = 16 min if highly distributed
+The number of tasks is: 2 ** hash size / 10e6 + 1<br/>
+You get hash size from the CreateHash_Job.q script, it is `-s`. This is set to 31 by default. So the number of tasks is 2,148.<br/>
+This step creates numbered directories in ./cluster_vectors/ for the number of clusters<br/>
+TIME: 1 min per task, 2148 tasks = 16 min if highly distributed<br/>
 MEMORY: 15G per task
 
 
@@ -224,10 +224,10 @@ Merge cluster blocks:
 
 `qsub  LSFScripts/KmerClusterMerge_ArrayJob.q`
 
-This step creates ******.npy in cluster_vectors
-NOTE: deletes the directories from above
-TIME: FAST, but I had few reads sorted
-MEMORY: 23G per task
+This step creates ******.npy in cluster_vectors<br/>
+NOTE: deletes the directories from above<br/>
+TIME: FAST, but I had few reads sorted<br/>
+MEMORY: 23G per task<br/>
 Number of tasks:  The number of tasks is equal to the number of clusters, which comes from `cluster_vectors/numClusters.txt` (from Step 9a)
 
 
@@ -235,22 +235,22 @@ Number of tasks:  The number of tasks is equal to the number of clusters, which 
 ---
 Arrange k-mer clusters on disk:
 
-`python ../LSFScripts/create_jobs.py -j KmerClusterCols -i $WRK`					
+`python ../LSFScripts/create_jobs.py -j KmerClusterCols -i $WRK`<br/>
 `qsub  LSFScripts/KmerClusterCols_Job.q`
 
 NOTE: Add this to the submission script
 
-`export PATH=/programs/Anaconda2/bin:$PATH`                         				
+`export PATH=/programs/Anaconda2/bin:$PATH`<br/>
 `export LD_LIBRARY_PATH=/programs/Anadonda2/lib:$LD_LIBRARY_PATH`
 
 This step creates:
-  cluster_vectors/cluster_cols.npy					
-  cluster_vectors/cluster_probs.npy				
-  cluster_vectors/cluster_vals.npy					
-  cluster_vectors/kmer_cluster_sizes.npy					
+  cluster_vectors/cluster_cols.npy<br/>
+  cluster_vectors/cluster_probs.npy<br/>
+  cluster_vectors/cluster_vals.npy<br/>
+  cluster_vectors/kmer_cluster_sizes.npy<br/>
   cluster_vectors/*cluster.npy
   
-TIME: 4 min
+TIME: 4 min<br/>
 MEMORY: 60G
 
 
@@ -267,10 +267,10 @@ You’ll need to modify ReadPartitions_ArrayJob.q to contain your tmp directory 
 `sed 's/TMPDIR/\/your\/tmp\/dir/g' < LSFScripts/ReadPartitions_ArrayJob.q | bsub`
 
 NOTE: sed is not necessary with these scripts, you can set tmp directory as `/partitions_tmp`
-The script will create numbered directories for each chunk in `/partitions_tmp` and eventually writes files into `/cluster_vectors/` numbered directories.
-NOTE: May stall out on a few partitions. If a few fail it’s OK, but if many fail you should resubmit them.
-TIME: 4 hrs per task
-Number of tasks = number of chunks = the number of chunks that your original fastq files are split up into-- NOT the number of clusters from Step 9a.
+The script will create numbered directories for each chunk in `/partitions_tmp` and eventually writes files into `/cluster_vectors/` numbered directories.<br/>
+NOTE: May stall out on a few partitions. If a few fail it’s OK, but if many fail you should resubmit them.<br/>
+TIME: 4 hrs per task<br/>
+Number of tasks = number of chunks = the number of chunks that your original fastq files are split up into-- NOT the number of clusters from Step 9a.<br/>
 MEMORY: 7G per task
 
 NOTE: I changed `*.hashq.*` to `*hashq*` in the write_partition_parts.py
@@ -281,10 +281,10 @@ Merge Partition parts
 
 Merge the partition chunks:
 
-`python ../LSFScripts/create_jobs.py -j MergeIntermediatePartitions -i $WRK`					
+`python ../LSFScripts/create_jobs.py -j MergeIntermediatePartitions -i $WRK`<br/>
 `qsub  LSFScripts/MergeIntermediatePartitions_ArrayJob.q`
 
-NOTE: Number of tasks = number of partitions = the number of clusters from Step 9a.
+NOTE: Number of tasks = number of partitions = the number of clusters from Step 9a.<br/>
 If any of these jobs fail you’ll need to resubmit them.
 
 
