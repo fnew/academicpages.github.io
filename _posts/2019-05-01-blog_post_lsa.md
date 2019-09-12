@@ -24,8 +24,7 @@ Step 1
 ------
 Copy the LSA folder to your local : 
    
-`cd my_local_directory`				
-
+`cd my_local_directory`<br/>
 `tar -xf /local/LSA/LatentStrainAnalysis.tar`
 
 Familiarize yourself with all of the directories included, especially /LatentStrainAnalysis/LSFScripts. 
@@ -57,10 +56,8 @@ Generate the hash function.
 
 Create a k-mer hash function by drawing a bunch of random hyperplanes. If you want to adjust the k-mer length or hash size, alter the “-k” or “-s” arguments in the create_hash.py command of CreateHash_Job.q.:
 
-`python create_jobs.py -j CreateHash -i $WRK`						
-
-`python create_jobs.py -j CreateHash -I /workdir/users/fnn3/lsa_twins/LatentStrainAnalysis/`				
-
+`python create_jobs.py -j CreateHash -i $WRK`<br/>
+`python create_jobs.py -j CreateHash -I /workdir/users/fnn3/lsa_twins/LatentStrainAnalysis/`<br/>
 `qsub CreateHash_Job.q #This script is created in the previous line`
 
 This hash function will be found in: `/LSFScripts/hashed_reads/Wheels.txt`
@@ -75,8 +72,7 @@ Step 5
 -------
 Hashing all the reads:
 
-`python LSFScripts/create_jobs.py -j HashReads -i $WRK`					
-
+`python LSFScripts/create_jobs.py -j HashReads -i $WRK`<br/>
 `qsub LSFScripts/HashReads_ArrayJob.q`
 
 The job array is set by the number of chunks created with the splitfastqs.sh script, here I have: 1,496 chunks. At this stage, if a few jobs fail, you can still move forward, but those chunks will be left out. Check the logs for jobs that did not work.
@@ -94,10 +90,8 @@ Tabulating k-mer counts in 1/5th of each sample:
 
 First, make sure that there is just one .fastq file per sample in original_reads/. The reason this is important is that the number of *.fastq files will be used to determine the array size. (The *.fastq. files are no longer needed, so you can remove those as well if you want).:
 
-`python LSFScripts/create_jobs.py -j MergeHash -i $WRK`						
-
-`python create_jobs.py -j MergeHash -i /workdir/users/fnn3/lsa_twins/LatentStrainAnalysis`				
-
+`python LSFScripts/create_jobs.py -j MergeHash -i $WRK`	<br/>
+`python create_jobs.py -j MergeHash -i /workdir/users/fnn3/lsa_twins/LatentStrainAnalysis`<br/>
 `qsub LSFScripts/MergeHash_ArrayJob.q`
 	
 NOTE: I had to change the hard coding in the source code "hash_counting.py" from `.*.hashq.*` to `*hashq*`, and also in merge_hashq_files.py. You can see my versions here: [hash_counting.py](http://fnew.github.io/files/hash_counting.py), and [merge_hashq_files.py](http://fnew.github.io/files/merge_hashq_files.py).
@@ -109,13 +103,12 @@ NOTE: There should be five files per sample as the output. The array job size is
 ---
 Combining the 5 counts files for each sample:
 
-`python LSFScripts/create_jobs.py -j CombineFractions -i $WRK`						
-
+`python LSFScripts/create_jobs.py -j CombineFractions -i $WRK`<br/>
 `qsub LSFScripts/CombineFractions_ArrayJob.q`
 
 It is important that these jobs finish, check logs.
 
-NOTE: Make sure to adjust the submission script: the headers and the directories within the command.
+NOTE: Make sure to adjust the submission script: the headers and the directories within the command.<br/>
 NOTE: The number of tasks = the number of samples
 	
   
@@ -127,20 +120,18 @@ Create the abundance matrix
 
 Global (k-mer) conditioning:
 
-`python LSFScripts/create_jobs.py -j GlobalWeights -i $WRK`					
-
+`python LSFScripts/create_jobs.py -j GlobalWeights -i $WRK`<br/>
 `qsub LSFScripts/GlobalWeights_Job.q`
-
 
 This launches a single job that must succeed to continue. Should produce `cluster_vectors/global_weights.npy`
 
-TIME: 3 minutes
-MEMORY: 70G (for my dataset)
-NOTE: This job must succeed to continue.
+TIME: 3 minutes<br/>
+MEMORY: 70G (for my dataset)<br/>
+NOTE: This job must succeed to continue.<br/>
 
 IMPORTANT: Add these lines to the scripts for 7a and 7b:
 
-`export PATH=/programs/Anaconda2/bin:$PATH`                       				
+`export PATH=/programs/Anaconda2/bin:$PATH`<br/>
 `export LD_LIBRARY_PATH=/programs/Anadonda2/lib:$LD_LIBRARY_PATH`
 
 
