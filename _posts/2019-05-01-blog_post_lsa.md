@@ -24,7 +24,7 @@ Step 1
 ------
 Copy the LSA folder to your local : 
    
-`cd my_local_directory`
+`cd my_local_directory`				
 `tar -xf /local/LSA/LatentStrainAnalysis.tar`
 
 Familiarize yourself with all of the directories included, especially /LatentStrainAnalysis/LSFScripts. 
@@ -56,8 +56,8 @@ Generate the hash function.
 
 Create a k-mer hash function by drawing a bunch of random hyperplanes. If you want to adjust the k-mer length or hash size, alter the “-k” or “-s” arguments in the create_hash.py command of CreateHash_Job.q.:
 
-`python create_jobs.py -j CreateHash -i $WRK`
-`python create_jobs.py -j CreateHash -I /workdir/users/fnn3/lsa_twins/LatentStrainAnalysis/`
+`python create_jobs.py -j CreateHash -i $WRK`						
+`python create_jobs.py -j CreateHash -I /workdir/users/fnn3/lsa_twins/LatentStrainAnalysis/`				
 `qsub CreateHash_Job.q #This script is created in the previous line`
 
 This hash function will be found in: `/LSFScripts/hashed_reads/Wheels.txt`
@@ -72,7 +72,7 @@ Step 5
 -------
 Hashing all the reads:
 
-`python LSFScripts/create_jobs.py -j HashReads -i $WRK`
+`python LSFScripts/create_jobs.py -j HashReads -i $WRK`					
 `qsub LSFScripts/HashReads_ArrayJob.q`
 
 The job array is set by the number of chunks created with the splitfastqs.sh script, here I have: 1,496 chunks. At this stage, if a few jobs fail, you can still move forward, but those chunks will be left out. Check the logs for jobs that did not work.
@@ -90,8 +90,8 @@ Tabulating k-mer counts in 1/5th of each sample:
 
 First, make sure that there is just one .fastq file per sample in original_reads/. The reason this is important is that the number of *.fastq files will be used to determine the array size. (The *.fastq. files are no longer needed, so you can remove those as well if you want).:
 
-`python LSFScripts/create_jobs.py -j MergeHash -i $WRK`
-`python create_jobs.py -j MergeHash -i /workdir/users/fnn3/lsa_twins/LatentStrainAnalysis`
+`python LSFScripts/create_jobs.py -j MergeHash -i $WRK`						
+`python create_jobs.py -j MergeHash -i /workdir/users/fnn3/lsa_twins/LatentStrainAnalysis`				
 `qsub LSFScripts/MergeHash_ArrayJob.q`
 	
 NOTE: I had to change the hard coding in the source code "hash_counting.py" from `.*.hashq.*` to `*hashq*`, and also in merge_hashq_files.py. You can see my versions here: [hash_counting.py](http://fnew.github.io/files/hash_counting.py), and [merge_hashq_files.py](http://fnew.github.io/files/merge_hashq_files.py).
@@ -103,7 +103,7 @@ NOTE: There should be five files per sample as the output. The array job size is
 ---
 Combining the 5 counts files for each sample:
 
-`python LSFScripts/create_jobs.py -j CombineFractions -i $WRK`
+`python LSFScripts/create_jobs.py -j CombineFractions -i $WRK`						
 `qsub LSFScripts/CombineFractions_ArrayJob.q`
 
 It is important that these jobs finish, check logs.
@@ -120,7 +120,7 @@ Create the abundance matrix
 
 Global (k-mer) conditioning:
 
-`python LSFScripts/create_jobs.py -j GlobalWeights -i $WRK`
+`python LSFScripts/create_jobs.py -j GlobalWeights -i $WRK`					
 `qsub LSFScripts/GlobalWeights_Job.q`
 
 
@@ -132,7 +132,7 @@ NOTE: This job must succeed to continue.
 
 IMPORTANT: Add these lines to the scripts for 7a and 7b:
 
-`export PATH=/programs/Anaconda2/bin:$PATH     `                       
+`export PATH=/programs/Anaconda2/bin:$PATH`                       				
 `export LD_LIBRARY_PATH=/programs/Anadonda2/lib:$LD_LIBRARY_PATH`
 
 
@@ -140,7 +140,7 @@ IMPORTANT: Add these lines to the scripts for 7a and 7b:
 ---
 Writing matrix rows to separate files, and computing local (sample) conditioning:
 
-`python LSFScripts/create_jobs.py -j KmerCorpus -i $WRK`
+`python LSFScripts/create_jobs.py -j KmerCorpus -i $WRK`					
 `qsub LSFScripts/KmerCorpus_ArrayJob.q`
 
 
@@ -152,7 +152,7 @@ NOTE: These jobs must all complete to continue. Relaunch any that failed.
 
 IMPORTANT: Add these lines to the scripts for 7a and 7b:
 
-`export PATH=/programs/Anaconda2/bin:$PATH  `                       
+`export PATH=/programs/Anaconda2/bin:$PATH  `                       		
 `export LD_LIBRARY_PATH=/programs/Anadonda2/lib:$LD_LIBRARY_PATH`
 
 
@@ -160,7 +160,7 @@ Step 8
 ------
 Calculating the streaming SVD
 
-`python LSFScripts/create_jobs.py -j KmerLSI -i $WRK`
+`python LSFScripts/create_jobs.py -j KmerLSI -i $WRK`						
 `qsub  LSFScripts/KmerLSI_Job.q`
 
 MEMORY: 60G, distributed
@@ -169,10 +169,10 @@ Will produce `cluster_vectors/kmer_lsi.gensim`.
 
 Add these to the submission script:
 
-`export PYRO_SERIALIZERS_ACCEPTED=serpent,json,marshal,pickle`
-`export PYRO_SERIALIZER=pickle`
-`export PATH=/programs/Anaconda2/bin:$PATH           `                
-`export LD_LIBRARY_PATH=/programs/Anadonda2/lib:$LD_LIBRARY_PATH`
+`export PYRO_SERIALIZERS_ACCEPTED=serpent,json,marshal,pickle`						
+`export PYRO_SERIALIZER=pickle`								
+`export PATH=/programs/Anaconda2/bin:$PATH`                					
+`export LD_LIBRARY_PATH=/programs/Anadonda2/lib:$LD_LIBRARY_PATH`			
 
 
 Script has to be run in a screen like this: `bash KmerLSI_Job.q` (I do not know why, it just does).
@@ -187,7 +187,7 @@ Kmer clustering
 ---
 Create the cluster index
 
-`python LSFScripts/create_jobs.py -j KmerClusterIndex -i $WRK`	
+`python LSFScripts/create_jobs.py -j KmerClusterIndex -i $WRK`						
 `qsub  LSFScripts/KmerClusterIndex_Job.q`
 	
 This step will set the k-mer cluster seeds, and the number of these seeds ultimately affects the resolution of partitioning. It is highly recommended that you check cluster_vectors/numClusters.txt for the number of clusters. If the resolution is markedly different from the expected / desired resolution, this job should be re-run with a different `-t` value in the submission script. From the manual: 
@@ -236,19 +236,19 @@ Number of tasks:  The number of tasks is equal to the number of clusters, which 
 ---
 Arrange k-mer clusters on disk:
 
-`python ../LSFScripts/create_jobs.py -j KmerClusterCols -i $WRK`	
+`python ../LSFScripts/create_jobs.py -j KmerClusterCols -i $WRK`					
 `qsub  LSFScripts/KmerClusterCols_Job.q`
 
 NOTE: Add this to the submission script
 
-`export PATH=/programs/Anaconda2/bin:$PATH`                         
+`export PATH=/programs/Anaconda2/bin:$PATH`                         				
 `export LD_LIBRARY_PATH=/programs/Anadonda2/lib:$LD_LIBRARY_PATH`
 
 This step creates:
-  cluster_vectors/cluster_cols.npy
-  cluster_vectors/cluster_probs.npy
-  cluster_vectors/cluster_vals.npy
-  cluster_vectors/kmer_cluster_sizes.npy
+  cluster_vectors/cluster_cols.npy					
+  cluster_vectors/cluster_probs.npy				
+  cluster_vectors/cluster_vals.npy					
+  cluster_vectors/kmer_cluster_sizes.npy					
   cluster_vectors/*cluster.npy
   
 TIME: 4 min
@@ -282,7 +282,7 @@ Merge Partition parts
 
 Merge the partition chunks:
 
-`python ../LSFScripts/create_jobs.py -j MergeIntermediatePartitions -i $WRK`	
+`python ../LSFScripts/create_jobs.py -j MergeIntermediatePartitions -i $WRK`					
 `qsub  LSFScripts/MergeIntermediatePartitions_ArrayJob.q`
 
 NOTE: Number of tasks = number of partitions = the number of clusters from Step 9a.
