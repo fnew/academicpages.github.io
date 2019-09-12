@@ -208,10 +208,8 @@ Kmer clustering
 ---
 Create the cluster index
 
-```bash
-python LSFScripts/create_jobs.py -j KmerClusterIndex -i $WRK
-qsub  LSFScripts/KmerClusterIndex_Job.q
-```
+`python LSFScripts/create_jobs.py -j KmerClusterIndex -i $WRK`
+`qsub  LSFScripts/KmerClusterIndex_Job.q`
 	
 This step will set the k-mer cluster seeds, and the number of these seeds ultimately affects the resolution of partitioning. It is highly recommended that you check cluster_vectors/numClusters.txt for the number of clusters. If the resolution is markedly different from the expected / desired resolution, this job should be re-run with a different `-t` value in the submission script. From the manual: 
 
@@ -219,25 +217,21 @@ This step will set the k-mer cluster seeds, and the number of these seeds ultima
 	
 NOTE: Add this to the submission script
 
-```bash
-export PATH=/programs/Anaconda2/bin:$PATH                           
-export LD_LIBRARY_PATH=/programs/Anadonda2/lib:$LD_LIBRARY_PATH
-```
+`export PATH=/programs/Anaconda2/bin:$PATH`                        
+`export LD_LIBRARY_PATH=/programs/Anadonda2/lib:$LD_LIBRARY_PATH`
 
 Remember to edit directory paths in the submission script.
 	
 NOTE: This `–t` option is not how the manual makes it seem. My dataset is ~500GB, when I use `–t 0.6`, I get 19 clusters, when I do `–t 0.8` I get 1406 clusters.
 	
-This should produce (among other things) a file `cluster_vectors/kmer_cluster_sizes.npy`.
+This should produce the files: `cluster_vectors/numClusters.txt` and `cluster_vectors/cluster_index.npy`.
 
 
 9b
 ---
 Cluster blocks of k-mers:
 
-```bash
-qsub  LSFScripts/KmerClusterParts_ArrayJob.q
-```
+`$ qsub  LSFScripts/KmerClusterParts_ArrayJob.q`
 
 The number of tasks is: 2 ** hash size / 10e6 + 1
 You get hash size from the CreateHash_Job.q script, it is `-s`. This is set to 31 by default. So the number of tasks is 2,148.
@@ -250,38 +244,34 @@ MEMORY: 15G per task
 --
 Merge cluster blocks:
 
-```bash
-qsub  LSFScripts/KmerClusterMerge_ArrayJob.q
-```
+`qsub  LSFScripts/KmerClusterMerge_ArrayJob.q`
 
 This step creates ******.npy in cluster_vectors
 NOTE: deletes the directories from above
 TIME: FAST, but I had few reads sorted
 MEMORY: 23G per task
-Number of tasks:  The number of clusters = 1406 (from step 9a)
+Number of tasks:  The number of tasks is equal to the number of clusters, which comes from `cluster_vectors/numClusters.txt` (from Step 9a)
 
 
 9d
 ---
 Arrange k-mer clusters on disk:
 
-```bash  
-python ../LSFScripts/create_jobs.py -j KmerClusterCols -i $WRK
-qsub  LSFScripts/KmerClusterCols_Job.q
-```
+`python ../LSFScripts/create_jobs.py -j KmerClusterCols -i $WRK`
+`qsub  LSFScripts/KmerClusterCols_Job.q`
 
 NOTE: Add this to the submission script
 
-```bash
-export PATH=/programs/Anaconda2/bin:$PATH                          
-export LD_LIBRARY_PATH=/programs/Anadonda2/lib:$LD_LIBRARY_PATH
-```
+`export PATH=/programs/Anaconda2/bin:$PATH`                         
+`export LD_LIBRARY_PATH=/programs/Anadonda2/lib:$LD_LIBRARY_PATH`
 
 This step creates:
   cluster_vectors/cluster_cols.npy
-  cluster_probs.npy
-  cluster_vals.npy
-  kmer_cluster_sizes.npy
+  cluster_vectors/cluster_probs.npy
+  cluster_vectors/cluster_vals.npy
+  cluster_vectors/kmer_cluster_sizes.npy
+  cluster_vectors/*cluster.npy
+  
 TIME: 4 min
 MEMORY: 60G
 
@@ -292,25 +282,20 @@ Read Partitioning
 
 Partition all the read chunks:
 
-```bash
-python .../LSFScripts/create_jobs.py -j ReadPartitions -i $WRK
-```
+`python .../LSFScripts/create_jobs.py -j ReadPartitions -i $WRK`
 
 You’ll need to modify ReadPartitions_ArrayJob.q to contain your tmp directory of choice.
 
-```bash
-sed 's/TMPDIR/\/your\/tmp\/dir/g' < LSFScripts/ReadPartitions_ArrayJob.q | bsub
-```
+`sed 's/TMPDIR/\/your\/tmp\/dir/g' < LSFScripts/ReadPartitions_ArrayJob.q | bsub`
 
-NOTE: sed is not necessary with these scripts, tmp directory is ‘partitions_tmp’
-Creates numbered directories for each chunk in ‘partitions’ tmp directory
-Eventually writes files into cluster_vectors numbered directories
+NOTE: sed is not necessary with these scripts, you can set tmp directory as `/partitions_tmp`
+The script will create numbered directories for each chunk in `/partitions_tmp` and eventually writes files into `/cluster_vectors/` numbered directories.
 NOTE: May stall out on a few partitions. If a few fail it’s OK, but if many fail you should resubmit them.
 TIME: 4 hrs per task
-Number of tasks = number of chunks = 1406
+Number of tasks = number of chunks = the number of chunks that your original fastq files are split up into-- NOT the number of clusters from Step 9a.
 MEMORY: 7G per task
 
-NOTE: Change `*.hashq.*` to `*hashq*` in the write_partition_parts.py
+NOTE: I changed `*.hashq.*` to `*hashq*` in the write_partition_parts.py
 
 Step 11
 -------
@@ -318,10 +303,11 @@ Merge Partition parts
 
 Merge the partition chunks:
 
-```bash
-python ../LSFScripts/create_jobs.py -j MergeIntermediatePartitions -i $WRK
-qsub  LSFScripts/MergeIntermediatePartitions_ArrayJob.q
-```
+`python ../LSFScripts/create_jobs.py -j MergeIntermediatePartitions -i $WRK`
+`qsub  LSFScripts/MergeIntermediatePartitions_ArrayJob.q`
 
-NOTE: Number of tasks = number of partitions = 1406
+NOTE: Number of tasks = number of partitions = the number of clusters from Step 9a.
 If any of these jobs fail you’ll need to resubmit them.
+
+
+And that is the end of the LSA pipeline! From here, I typically assemble the bins (partitions from LSA) and then identify AMPHORA genes (or something similar) to taxanomically annotate and assess the contamination level of the bins. 
