@@ -25,6 +25,7 @@ Step 1
 Copy the LSA folder to your local : 
    
 `cd my_local_directory`				
+
 `tar -xf /local/LSA/LatentStrainAnalysis.tar`
 
 Familiarize yourself with all of the directories included, especially /LatentStrainAnalysis/LSFScripts. 
@@ -57,7 +58,9 @@ Generate the hash function.
 Create a k-mer hash function by drawing a bunch of random hyperplanes. If you want to adjust the k-mer length or hash size, alter the “-k” or “-s” arguments in the create_hash.py command of CreateHash_Job.q.:
 
 `python create_jobs.py -j CreateHash -i $WRK`						
+
 `python create_jobs.py -j CreateHash -I /workdir/users/fnn3/lsa_twins/LatentStrainAnalysis/`				
+
 `qsub CreateHash_Job.q #This script is created in the previous line`
 
 This hash function will be found in: `/LSFScripts/hashed_reads/Wheels.txt`
@@ -73,6 +76,7 @@ Step 5
 Hashing all the reads:
 
 `python LSFScripts/create_jobs.py -j HashReads -i $WRK`					
+
 `qsub LSFScripts/HashReads_ArrayJob.q`
 
 The job array is set by the number of chunks created with the splitfastqs.sh script, here I have: 1,496 chunks. At this stage, if a few jobs fail, you can still move forward, but those chunks will be left out. Check the logs for jobs that did not work.
@@ -91,7 +95,9 @@ Tabulating k-mer counts in 1/5th of each sample:
 First, make sure that there is just one .fastq file per sample in original_reads/. The reason this is important is that the number of *.fastq files will be used to determine the array size. (The *.fastq. files are no longer needed, so you can remove those as well if you want).:
 
 `python LSFScripts/create_jobs.py -j MergeHash -i $WRK`						
+
 `python create_jobs.py -j MergeHash -i /workdir/users/fnn3/lsa_twins/LatentStrainAnalysis`				
+
 `qsub LSFScripts/MergeHash_ArrayJob.q`
 	
 NOTE: I had to change the hard coding in the source code "hash_counting.py" from `.*.hashq.*` to `*hashq*`, and also in merge_hashq_files.py. You can see my versions here: [hash_counting.py](http://fnew.github.io/files/hash_counting.py), and [merge_hashq_files.py](http://fnew.github.io/files/merge_hashq_files.py).
@@ -104,6 +110,7 @@ NOTE: There should be five files per sample as the output. The array job size is
 Combining the 5 counts files for each sample:
 
 `python LSFScripts/create_jobs.py -j CombineFractions -i $WRK`						
+
 `qsub LSFScripts/CombineFractions_ArrayJob.q`
 
 It is important that these jobs finish, check logs.
@@ -121,6 +128,7 @@ Create the abundance matrix
 Global (k-mer) conditioning:
 
 `python LSFScripts/create_jobs.py -j GlobalWeights -i $WRK`					
+
 `qsub LSFScripts/GlobalWeights_Job.q`
 
 
