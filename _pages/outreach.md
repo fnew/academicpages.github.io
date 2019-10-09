@@ -8,10 +8,12 @@ author_profile: true
 {% include base_path %}
 
 * Cofounder and Treasurer of the First Generation and Low Income Graduate Student Organization at Cornell University, 2019-2020.
+    - [Find us on Facebook!](https://www.facebook.com/pg/CornellFiGLI/about/)
 * Serving as Treasurer for the Genetics and Genomics Graduate Student Association, Cornell University, 2019-2020.
 * Organizer for the Microbiome Hack. Ithaca, NY, 2019.
     - Organized and led a two-day data science hackathon aimed at exposing undergraduate and graduate students from the region to data science, computational biology, and microbiome research. 
     - Mentored student teams during the two-day data science hackathon.
+    - [MicrobiomeHack.org](http://www.microbiomehack.org)
 * Graduate and Professional Student Assembly Field Representative. Cornell University, 2017-2019.
 * Co-organizer for the BMCB-GGD Biennial Symposium. Cornell University, 2018.
     - Invited speakers, organized, and hosted the one-day research symposium.
