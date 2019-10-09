@@ -25,7 +25,7 @@ Hackathon, 2020 -- Coming soon!
 
 The Microbiome Hack, 2019
 --------------------------------------
-<img src="https://fnew.github.io/images/hack_logo.png" width="200" height="200">
+<img src="https://fnew.github.io/images/hack_logo.png" width="300" height="300">
 
 * Date: April 13-14, 2019
 * Location: eHub, Ithaca, NY
@@ -44,7 +44,7 @@ Health Tech Hackathon, 2018
 
 The Brito Lab partnered with Cornell eShip to host a hackathon focused on human health with an entrepreneurial spirit. 
 Projects fell into two catagories: 
-    - Solving the antimicrobial resistance crisis
-    - Building sleep tracking solutions (sponsored by GSK)
+* Solving the antimicrobial resistance crisis
+* Building sleep tracking solutions (sponsored by GSK)
 
 <img src="https://fnew.github.io/images/healthhack_alyssa_felicia.JPG" width="200" height="250"> <img src="https://fnew.github.io/images/healthhack_group.JPG" width="250" height="250">
