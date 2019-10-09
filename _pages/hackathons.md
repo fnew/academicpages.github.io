@@ -20,13 +20,12 @@ Hackathon, 2020 -- Coming soon!
 
 * Date: March 13-15, 2020
 * Location: eHub, Ithaca, NY
-
 * More information, such as theme and registration coming soon!
 
 
 The Microbiome Hack, 2019
 --------------------------------------
-![Microbiome Hack Logo](https://github.com/fnew/fnew.github.io/tree/master/images/hack_logo.png)
+<img src="https://fnew.github.io/images/hack_logo.png" width="200" height="200">
 
 * Date: April 13-14, 2019
 * Location: eHub, Ithaca, NY
@@ -34,9 +33,7 @@ The Microbiome Hack, 2019
 
 The Microbiome Hack was focused on exposing undergraduate and graduate students from Cornell, Ithaca College, and more to data science, computational biology, and microbiome research. This was a fun and intense two-day event that culminated in group presentations and awards. Graduate and faculty mentors are available all weekend to assist students with their projects.
 
-![Alyssa and Felicia at the Microbiome hack](https://github.com/fnew/fnew.github.io/tree/master/images/microbehack_alyss_felicia.JPG)
-
-![Participants listen to Dr. Scott Oleson give a talk at the hackathon](https://github.com/fnew/fnew.github.io/tree/master/images/microbhack_group.JPG)
+<img src="https://fnew.github.io/images/microbehack_alyss_felicia.JPG" width="190" height="250"> <img src="https://fnew.github.io/images/microbhack_group.JPG" width="400" height="250">
 
 Health Tech Hackathon, 2018
 --------------------------------------
@@ -50,6 +47,4 @@ Projects fell into two catagories:
     - Solving the antimicrobial resistance crisis
     - Building sleep tracking solutions (sponsored by GSK)
 
-![Alyssa and Felicia at the hackathon](https://github.com/fnew/fnew.github.io/tree/master/images/healthhack_alyssa_felicia.JPG)
-
-![Group of hackers at the Health Tech hackathon](https://github.com/fnew/fnew.github.io/tree/master/images/healthhack_group.JPG)
+<img src="https://fnew.github.io/images/healthhack_alyssa_felicia.JPG" width="200" height="250"> <img src="https://fnew.github.io/images/healthhack_group.JPG" width="250" height="250">
