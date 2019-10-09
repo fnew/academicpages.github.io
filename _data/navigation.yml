@@ -5,7 +5,10 @@ main:
     
   - title: "Research"
     url: /research/
-        
+  
+  - title: "Outreach"
+    url: /outreach/     
+  
   - title: "Blog Posts"
     url: /year-archive/
   
