@@ -1,6 +1,6 @@
 ---
 layout: archive
-permalink: /outreach/
+permalink: /outreach/outreach.md
 title: "Outreach and Leadership"
 author_profile: true
 
