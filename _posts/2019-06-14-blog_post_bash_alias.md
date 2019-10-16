@@ -33,7 +33,7 @@ Each alias is on a new line and begins with the command `alias`, followed by you
 
 Using combinations of options with `ls` on the command line is very useful, but can get clunky. A common command is: `ls -lhaG`. (This tells the shell to list the contects of a directory in long format, showing hidden files, with human-readable sizes, and hide the group names.) Instead of typing `ls -lhaG` everytime, it would be much easier to type `ll`.
 
-`vi ~/.bashrc`
+`$ vi ~/.bashrc`
 
 This will open your `.bashrc ` file in vim. Now that you are in vim, or whatever text editor you prefer, add the following:
 
