@@ -1,6 +1,6 @@
 ---
-title: 'Using 'sed''
-data: 2019-10-16
+title: 'Using Sed'
+date: 2019-10-16
 permalink: /posts/2019/10/blog_post_using_sed/
 tags:
   - bash
