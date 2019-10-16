@@ -11,21 +11,13 @@ tags:
 
 The standard pipeline that we use in the Brito Lab for quality control, alignments, and gene abundance calculations for metagenomic data.
 
+Paths are relative to our in-house work stations, CBSUBrito and CBSUBrito2.
+
 
 Quality Control (QC)
 ====================
 
 Step 1
-------
-Removing Duplicates
-
-  Input: Raw sequencing reads  
-  Program: Prinseq (/programs/prinseq-lite-0.20.2)   
-  Script: /workdir/scripts/QC/run_dereplication.qsub
-
-Notes: Files must be uncompressed for this program. Use -no_qual_header to reduce file size and prevent prinseq from adding redundant qual header. This has been modified in original script. 
- 
-Step 2
 ------
 Removing Human Reads
 
@@ -35,8 +27,7 @@ Removing Human Reads
 
 Notes: This step is only needed for metagenomic samples from humans. This step removes human reads that are considered contamination in your samples.
 
- 
-Step 3
+Step 2
 ------
 Removing Adapter Sequence and Quality Trimming
 
@@ -46,6 +37,16 @@ Removing Adapter Sequence and Quality Trimming
 
 Notes: This script removes adapter sequence, uses a sliding window to trim poor quality bases, and removes leading and trailing poor quality bases. It also restricts a minimum read length of 50 (this can be changed depending on your needs). The reference file of adapter sequences is located: `/home/britolab/refdbs/nextera_truseq_adapters.fasta`. The script outputs a FQ file for forward paired, forward singletons, reverse paired, and reverse singletons. 
 
+Step 3
+------
+Removing Duplicates
+
+  Input: Raw sequencing reads  
+  Program: Prinseq (/programs/prinseq-lite-0.20.2)   
+  Script: /workdir/scripts/QC/run_dereplication.qsub
+
+Notes: Files must be uncompressed for this program. Use -no_qual_header to reduce file size and prevent prinseq from adding redundant qual header. This has been modified in original script. 
+ 
 
 Alignments
 ==========
