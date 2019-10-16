@@ -23,9 +23,19 @@ I start with this because [this is the most asked question on stack overflow](ht
 
 >In the last year, How to exit the Vim editor has made up about .005% of question traffic: that is, one out of every 20,000 visits to Stack Overflow questions. That means during peak traffic hours on weekdays, there are about 80 people per hour that need help getting out of Vim.
 
-All jokes aside, if you want to open vim, first open a terminal (Terminal in MacOS, or download something like Putty for Windows) and type `vi`. 
 
-Now that you are inside of vim, you are currently in "Normal mode". If you hit the `i` key, you will be in "Interactive mode". In this mode you can type and move around the file (which is blank at this point). Hit `Esc` to go back to "Normal mode". 
+
+Opening and Moving around Vim
+-----------------
+All jokes aside, if you want to open vim, first open a terminal (Terminal in MacOS, or download something like Putty for Windows) and type `vi`. Vim ships with all Unix-based systems, so it will already be installed if you are on MacOS or Linux.
+
+Now that you are inside of vim, you are currently in "Normal mode". Anything you type in this mode will not show up on the screen, but can be used for navigating the file. For instance, &larr;, &uarr;, &darr; and &rarr; are `h`, `j`, `k`, and `l` keys, respectively. You can use `$` to skip to the end of the line or `0` to move to the beginning of the line. [To learn more about moving around in Vim, I recommend this page from Vim fandom](https://vim.fandom.com/wiki/Moving_around).
+
+
+Editing in Vim
+---------------
+If you hit the `i` key, you will be in "Interactive mode". This means that anything you type will now appear on the screen. In this mode you can still move around the file, but you will need to use the arrow keys. Hit `Esc` to go back to "Normal mode" to move around using keyboard commands again. Don't forget, in order to exit Vim, you will need to hit `Esc` first to exit "Interactive mode", then you can type `:q`, `:wq`, or `:!q`.
+
 
 Tutorials
 ---------
