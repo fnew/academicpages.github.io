@@ -46,8 +46,11 @@ You have to split your fastq files into smaller chunks. LSA provides a script th
 	
 To run, type: `sh splitfastqs.sh *.fastq` within the folder that contains the fastq files
 
-Copy the FQ files for analysis to the LSA folder
-Split the reads within the same folder
+Copy the FQ files for analysis to the LSA folder, I choose to symlink the files here rather than copying. 
+
+  `$ ln -s /original_location/files /new_location/files`
+  
+Split the reads within the same folder, i.e. `/original_reads/`.
   
   
 Step 4
@@ -57,7 +60,7 @@ Generate the hash function.
 Create a k-mer hash function by drawing a bunch of random hyperplanes. If you want to adjust the k-mer length or hash size, alter the “-k” or “-s” arguments in the create_hash.py command of CreateHash_Job.q.:
 
 `$ python create_jobs.py -j CreateHash -i $WRK`<br/>
-`$ python create_jobs.py -j CreateHash -I /workdir/users/fnn3/lsa_twins/LatentStrainAnalysis/`<br/>
+`$ python create_jobs.py -j CreateHash -I /workdir/users/fnn3/lsa_twins/LatentStrainAnalysis`<br/>
 `$ qsub CreateHash_Job.q #This script is created in the previous line`
 
 This hash function will be found in: `/LSFScripts/hashed_reads/Wheels.txt`
@@ -66,7 +69,8 @@ NOTE: Some notes on the '.q' files: These are set up for a different type of sch
 	
 I edited the script fastq_reader.py and fastq_reader.pyc. These are found in the /LSA/ folder. You can use my versions here: 
 [fastq_reader.py](http://fnew.github.io/files/fastq_reader.py), and [fastq_reader.pyc](http://fnew.github.io/files/fastq_reader.pyc).
-	
+
+Final Note: You should delete the original .fq files in the /original_reads/ directory, because it could mess up later steps if they are still there. Only keep the split reads here from now on.
 
 Step 5
 -------
@@ -131,9 +135,10 @@ NOTE: This job must succeed to continue.<br/>
 
 IMPORTANT: Add these lines to the scripts for 7a and 7b:
 
-`$ export PATH=/programs/Anaconda2/bin:$PATH`<br/>
-`$ export LD_LIBRARY_PATH=/programs/Anadonda2/lib:$LD_LIBRARY_PATH`
-
+```console
+$ export PATH=/programs/Anaconda2/bin:$PATH
+$ export LD_LIBRARY_PATH=/programs/Anadonda2/lib:$LD_LIBRARY_PATH
+```
 
 7b
 ---
@@ -150,10 +155,10 @@ TIME: 15 min per sample<br/>
 NOTE: These jobs must all complete to continue. Relaunch any that failed.
 
 IMPORTANT: Add these lines to the scripts for 7a and 7b:
-
-`$ export PATH=/programs/Anaconda2/bin:$PATH  `<br/>
-`$ export LD_LIBRARY_PATH=/programs/Anadonda2/lib:$LD_LIBRARY_PATH`
-
+```console
+$ export PATH=/programs/Anaconda2/bin:$PATH 
+$ export LD_LIBRARY_PATH=/programs/Anadonda2/lib:$LD_LIBRARY_PATH
+```
 
 Step 8
 ------
@@ -194,10 +199,10 @@ This step will set the k-mer cluster seeds, and the number of these seeds ultima
 >Roughly speaking, we’ve found the following values to work for different scale datasets: 0.5-0.65 for large scale (Tb), 0.6-0.8 for medium scale (100Gb), >0.75 for small scale (10Gb). See misc/parameters.xlsx for more info.
 	
 NOTE: Add this to the submission script
-
-`$ export PATH=/programs/Anaconda2/bin:$PATH`<br/>
-`$ export LD_LIBRARY_PATH=/programs/Anadonda2/lib:$LD_LIBRARY_PATH`
-
+```console
+$ export PATH=/programs/Anaconda2/bin:$PATH
+$ export LD_LIBRARY_PATH=/programs/Anadonda2/lib:$LD_LIBRARY_PATH
+```
 Remember to edit directory paths in the submission script.
 	
 NOTE: This `–t` option is not how the manual makes it seem. My dataset is ~500GB, when I use `–t 0.6`, I get 19 clusters, when I do `–t 0.8` I get 1406 clusters.
@@ -215,7 +220,8 @@ The number of tasks is: 2 ** hash size / 10e6 + 1<br/>
 You get hash size from the CreateHash_Job.q script, it is `-s`. This is set to 31 by default. So the number of tasks is 2,148.<br/>
 This step creates numbered directories in ./cluster_vectors/ for the number of clusters<br/>
 TIME: 1 min per task, 2148 tasks = 16 min if highly distributed<br/>
-MEMORY: 15G per task
+MEMORY: 25G per task<br/>
+NOTE: This step can run out of memory and die silently. It is important to thorougly check the logs for any mention of memory. Otherwise, if jobs fail here, you will not know until you get to the end and find out that the files are corrupt.
 
 
 9c
@@ -239,9 +245,10 @@ Arrange k-mer clusters on disk:
 `$ qsub  LSFScripts/KmerClusterCols_Job.q`
 
 NOTE: Add this to the submission script
-
-`$ export PATH=/programs/Anaconda2/bin:$PATH`<br/>
-`$ export LD_LIBRARY_PATH=/programs/Anadonda2/lib:$LD_LIBRARY_PATH`
+```console
+$ export PATH=/programs/Anaconda2/bin:$PATH
+$ export LD_LIBRARY_PATH=/programs/Anadonda2/lib:$LD_LIBRARY_PATH
+```
 
 This step creates:
   cluster_vectors/cluster_cols.npy<br/>
