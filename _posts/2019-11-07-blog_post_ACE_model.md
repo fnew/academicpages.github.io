@@ -1,6 +1,6 @@
 ---
 title: 'The ACE Model: Estimating heritability with twins' data'
-date: 2019-10-16
+date: 2019-11-07
 permalink: /posts/2019/11/blog_post_ACE_model/
 tags:
   - ACE model
