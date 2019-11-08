@@ -9,6 +9,9 @@ tags:
   - genetics
 ---
 
+*A brief primer on heritability and estimating heritability using phenotype (any observable trait such as height, eye color, or a health condition) data from twins.*
+
+
 The ACE Model for Twins Studies
 =================================
 The twins structure of the dataset allows us to ask whether these microbial gene families are heritable. Monozygotic (MZ) twins share 100% of their DNA code, while dizygotic (DZ) twins share on average 50% of their DNA code. Any phenotypic differences between monozygotic (MZ) twins is theoretically due to the environment. Any excess in similarity between MZ twins over DZ twins must be due to genetics.
