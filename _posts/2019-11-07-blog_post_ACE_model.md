@@ -1,5 +1,5 @@
 ---
-title: 'The ACE Model: Estimating heritability with twins' data'
+title: 'The ACE Model: Estimating heritability with twin data'
 date: 2019-11-07
 permalink: /posts/2019/11/blog_post_ACE_model/
 tags:
