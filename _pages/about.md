@@ -10,7 +10,7 @@ redirect_from:
 
 Hi!
 
-I am a PhD candidate in the field of Genetics, Genomics, & Development at Cornell University. I am in the lab of Dr. Ilana Brito. I am interested in how the human gut microbiome affects human health and how genetics may play a role. I use and develop a variety of computational and statistical tools to investigate this relationship. I am interested in the role of the gut microbiome in our overall health and how our genetics shape the formation and activity of the microbiome. A second area of my work involves using 'big data' to track the spread of antimicrobial resistance genes between bacteria residing within the gut microbiome. I enjoy developing and applying bioinformatics and statistical tools to address these questions about the gut microbiome in novel ways.
+I am a PhD candidate in the field of Genetics, Genomics, & Development at Cornell University. I am in the lab of Dr. Ilana Brito. I am interested in how the human gut microbiome affects human health and how genetics may play a role in the formation and activity of the gut microbiome. I use and develop a variety of computational and statistical tools to investigate these relationships. I enjoy developing and applying bioinformatics and statistical tools to address questions about the gut microbiome in novel ways.
 
 To more see more about our awesome lab, [Check out the Brito Lab website here!](https://www.britolab.org)
 
