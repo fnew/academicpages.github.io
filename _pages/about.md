@@ -17,8 +17,8 @@ To more see more about our awesome lab, [Check out the Brito Lab website here!](
 
 Recent News
 -----------
-#### Fall 2020
+#### November 2019
 Along with two other graduate students, I have been working to establish a new organization at Cornell for first-generation and low-income graduate students. This new organization, known as FiGLI, was officially registered in August. To learn more about FiGLI, please visit the [FiGLI Facebook page here](https://www.facebook.com/CornellFiGLI/), or read [this feature in the Cornell Chronical](https://news.cornell.edu/stories/2019/11/new-group-supports-first-generation-and-low-income-students)!
 
-#### Spring 2019
+#### April 2019
 We recently hosted a Microbiome Hackathon at Cornell. The event was designed to expose students to data science, computational biology, and questions of the microbiome field. To learn more about this fun event, [visit our website](http://www.microbiomehack.org), or read this great write up about the hackathon in the [Cornell Daily Sun!](https://cornellsun.com/2019/04/19/cancer-biology-machine-learning-and-creative-problem-solving-at-cornells-microbiome-hackathon/)
