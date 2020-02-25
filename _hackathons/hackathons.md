@@ -15,12 +15,15 @@ In general, a hackathon is where people work in teams to solve interesting probl
 During my time in graduate school, I have organized, hosted, and mentored at several hackathons. We have thus far hosted two hackathons since 2018 and have another one planned for the Spring of 2020. Leading up to the event each Spring semester, Prof. Ilana Brito, Dr. Alyssa Kent, and I lead a course (Cornell BME4905) to prepare students for the hackathon event. We introduce students to microbiome research, the experimental and computational methods within the field, and help the students to brainstorm ideas for the event. 
 
 
-Hackathon, 2020 -- Coming soon! 
+The Microbiome Hack, 2020 
 --------------------------------
+<img src="https://fnew.github.io/images/hackathon2020_logo_grey.png" width="300" height="300">
 
 * Date: March 13-15, 2020
 * Location: eHub, Ithaca, NY
-* More information, such as theme and registration coming soon!
+* [MicrobiomeHack.org](microbiomehack.org)
+
+The Microbiome Hack will once again focuse on exposing undergraduate and graduate students from Cornell, Ithaca College, and more to data science, computational biology, and microbiome research. This is a fun and intense three-day event that culminates in group presentations and awards. Graduate and faculty mentors are available all weekend to assist students with their projects.
 
 
 The Microbiome Hack, 2019
@@ -29,7 +32,7 @@ The Microbiome Hack, 2019
 
 * Date: April 13-14, 2019
 * Location: eHub, Ithaca, NY
-* [MicrobiomeHack.org](http://www.microbiomehack.org)
+* [MicrobiomeHack.org](https://flanabristo.wixsite.com/microbiomehack2019/teams)
 
 The Microbiome Hack was focused on exposing undergraduate and graduate students from Cornell, Ithaca College, and more to data science, computational biology, and microbiome research. This was a fun and intense two-day event that culminated in group presentations and awards. Graduate and faculty mentors are available all weekend to assist students with their projects.
 
