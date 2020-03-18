@@ -1,6 +1,6 @@
 ---
 title: 'Data Science Tutorials'
-date: 2019-11-07
+date: 2020-03-18
 permalink: /posts/2020/03/blog_post_data_science_tutorials/
 tags:
   - R
