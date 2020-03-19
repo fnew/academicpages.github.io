@@ -23,20 +23,38 @@ The most important thing I learned in my computational biology experience is how
   * [8 Useful Shell Commands for Data Science](https://www.datacamp.com/community/tutorials/shell-commands-data-scientist)
   * [Bioinformatics 101 by Hadrien Gourle](https://www.hadriengourle.com/tutorials/) tutorials for the command line, file formats, and programs used in NGS data analysis
   * [Linux command line exercises for NGS data](http://userweb.eng.gla.ac.uk/umer.ijaz/bioinformatics/linux.html) by Umer Zeeshan Ijaz
+  * [Advanced Bash-Scripting guide from Mendel Cooper](https://www.tldp.org/LDP/abs/html/index.html)
   
 I would also recommend learning a text editor that can be used through a terminal. My personal favorite is Vim, [I even wrote a short blog post](https://fnew.github.io/posts/2019/05/blog_post_getting_started_vim/) about it last year. Other CLI text editors include nano and Emacs. All three come installed on all Unix-based operating systems like Linux or MacOS (in other words, any operating system that comes with a terminal).
+
+I want to throw in here that learning about version control software is a useful thing for computational biologists. Git is useful for collaborative projects, but could be useful to keep track of your own code, too! [Here is a simple guide for getting started with git](http://rogerdudler.github.io/git-guide/). 
+
 
 Learning R
 -------------
 R is a great language to learn for statistical analyses and data visualization. A good first step in learning to use R is to [download RStudio for desktop](https://rstudio.com/products/rstudio/). RStudio is an integrated development environment, or IDE, for the language R. IDEs are useful for writing, reading, and debugging code. For an introduction to R, [this tutorial from swirl](https://swirlstats.com) lets you learn interactively at your own pace. Here is a text-based [tutorial for learning R from datamentor](https://www.datamentor.io/r-programming/#tutorial).
 
-Within RStudio, you can create documents of your work using RMarkdown. These are useful for reproducibility, transparency, and keeping track of your own work. I found a [tutorial for using RMarkdown](https://ourcodingclub.github.io/tutorials/rmarkdown/) from the Coding Club. 
+Within RStudio, you can create documents of your work using RMarkdown. These are useful for reproducibility, transparency, and keeping track of your own work. I found a [tutorial for using RMarkdown](https://ourcodingclub.github.io/tutorials/rmarkdown/) from the Coding Club. If you need help learning RMarkdown, which supports [LaTeX](http://www.rpi.edu/dept/arc/training/latex/LaTeX_symbols.pdfV), here is a [guide about mathematics in RMarkdown](https://www.calvin.edu/~rpruim/courses/s341/S17/from-class/MathinRmd.html), but there are many cheatsheets available online, too.
 
 For more intermediate users, I would recommend diving into the [Tidyverse!](https://www.tidyverse.org) The tidyverse is a collection of R packages designed specifically for data science. All packages work well together and share not only an underlying design philosophy, but also grammar and data structures. You may already be familiar with some of the packages included in the tidyverse: ggplot2 and dplyr. Easily install the complete tidyverse with: `install.packages("tidyverse")`.
 
-R is great for data visualization (^ggplot2!). [Selva Prabhakaran has created a nice tutorial](http://r-statistics.co/R-Tutorial.html) for R and data visualization in R using ggplot2. This page also goes through many topics including linear regression, model selection, and time series data analysis.
+R is great for data visualization (^ggplot2!). [Selva Prabhakaran has created a nice tutorial](http://r-statistics.co/R-Tutorial.html) for R and data visualization in R using ggplot2. This page also goes through many topics including linear regression, model selection, and time series data analysis. The [Cookbook for R for graphs](http://www.cookbook-r.com/Graphs/) is one of my most used resources for plotting in R. 
 
 Claus O. Wilke wrote an entire book called [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/index.html) using RMarkdown, which he made open access as well as selling hard copies. This book is a great resource for learning about the basics of data visualization and how to avoid common problems like visualizing proportions or color choice.
+
+Learning Python
+----------------
+CodeAcademy has [courses for learning Python](https://www.codecademy.com/catalog/language/python) that include the basics, analysing data, data visualization, and getting started with machine learning in Python.
+
+There are a number of Python librarys that would be useful to learn as a computational biolgist. Here, I will list a few topics and related tutorials.
+  * [NumPy for working with numerical data and matrices](https://numpy.org/devdocs/user/absolute_beginners.html)
+  * [Pandas for fast and flexible data structures for data analysis](https://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html)
+  * [Scikit-learn tutorials for machine learning in Python](https://scikit-learn.org/stable/tutorial/index.html)
+  * [SciPy, or Scientific Python, introduction and lessons](https://docs.scipy.org/doc/scipy/reference/tutorial/index.html)
+  * [Biopython basics, practical computing for biologists](https://people.duke.edu/~ccc14/pcfb/biopython/BiopythonBasics.html)
+  
+
+There are a number of IDEs out there, but [Jupyter](https://jupyter.org) notebook seems to be the most popular for Python right now. [JupyterLab is a web-based IDE](https://jupyter.org/install.html) for [Jupyter notebooks](https://jupyter.org/install.html). In order to install Jupyter on your computer, you will need conda or pip, which may require some basic Python knowledge. 
 
 Data Science
 -----------------
@@ -55,19 +73,7 @@ The blog Eight to Late has a number of "gentle introduction" blog posts for vari
 
 Learning a database language can be useful for data science. The Knight Lab has created a fun ["murder mystery" game to learn SQL](https://mystery.knightlab.com). They include an introductory lesson for beginners. Once you have completed the introduction (or if you already know SQL), you can jump into the murder mystery.  
 
-Learning Python
-----------------
-CodeAcademy has [courses for learning Python](https://www.codecademy.com/catalog/language/python) that include the basics, analysing data, data visualization, and getting started with machine learning in Python.
-
-There are a number of Python librarys that would be useful to learn as a computational biolgist. Here, I will list a few topics and related tutorials.
-  * [NumPy for working with numerical data and matrices](https://numpy.org/devdocs/user/absolute_beginners.html)
-  * [Pandas for fast and flexible data structures for data analysis](https://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html)
-  * [Scikit-learn tutorials for machine learning in Python](https://scikit-learn.org/stable/tutorial/index.html)
-  * [SciPy, or Scientific Python, introduction and lessons](https://docs.scipy.org/doc/scipy/reference/tutorial/index.html)
-  * [Biopython basics, practical computing for biologists](https://people.duke.edu/~ccc14/pcfb/biopython/BiopythonBasics.html)
-  
-
-There are a number of IDEs out there, but [Jupyter](https://jupyter.org) notebook seems to be the most popular for Python right now. [JupyterLab is a web-based IDE](https://jupyter.org/install.html) for [Jupyter notebooks](https://jupyter.org/install.html). In order to install Jupyter on your computer, you will need conda or pip, which may require some basic Python knowledge. 
+Chris Albon is a data scientist who makes very easy to follow notes on many topics including machine learning and Python, but also things like computer science topics, AWS, Linux, and regular expressions. [His website](https://chrisalbon.com) is loaded with information and step-by-step guides and I highly recommend spending some time browsing it.
 
 Genomic Data Science
 -------------------------
@@ -93,6 +99,6 @@ For beginning and more advanced Python users, [rosalind](http://rosalind.info/pr
 
   
 
-To be continued...
+Notes...
 --------
 I will continue to update this post as I find more useful resources. 
