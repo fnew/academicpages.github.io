@@ -56,6 +56,8 @@ There are a number of Python librarys that would be useful to learn as a computa
 
 There are a number of IDEs out there, but [Jupyter](https://jupyter.org) notebook seems to be the most popular for Python right now. [JupyterLab is a web-based IDE](https://jupyter.org/install.html) for [Jupyter notebooks](https://jupyter.org/install.html). In order to install Jupyter on your computer, you will need conda or pip, which may require some basic Python knowledge. 
 
+Andaconda is a package and environment manager and is theoretically language agnostic (whereas 'pip', for example, is just a package manager for Python). Environments are useful for creating a virtual sandbox for your project, where you can keep track of software versions and installations. They also make reproducing an analysis or pipeline easier. I found [this blog post on Towards Data Science](https://towardsdatascience.com/a-guide-to-conda-environments-bc6180fc533) to be especially helpful for getting started with using conda environments.
+
 Data Science
 -----------------
 The RafaLab has a number of excellent [teaching materials for using R for data science](http://rafalab.github.io/pages/teaching.html). They have lessons for many topics including, but not limited to:
