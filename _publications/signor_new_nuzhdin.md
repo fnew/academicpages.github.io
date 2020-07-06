@@ -1,7 +1,6 @@
 ---
 title: "A Large Panel of Drosophila simulans Reveals an Abundance of Common Variants"
 collection: publications
-permalink: /publications/signor_new_nuzhdin
 excerpt: 'This paper describes the population genetics of a large panel of Drosophila simulans inbred lines.'
 date: 2018-01-01
 venue: 'Genome Biol Evol.'
