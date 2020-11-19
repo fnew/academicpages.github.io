@@ -17,6 +17,12 @@ To more find out more about the Brito lab, [Check out our website here!](https:/
 
 Recent News
 -----------
+#### September 2020
+I received the news that I've been awarded an NIH Research Fellowship to continue my research on genetic determinants of the gut microbiome!
+
+#### July 2020
+My review paper with Dr. Ilana Brito is out in [Annual Reviews Microbiology](https://www.annualreviews.org/doi/abs/10.1146/annurev-micro-012520-072314)! We review the many benefits of using metagenomic sequencing data, such as greater resolution of species/strains/functions, while also highlighting the challenges to metagenomic data analysis.
+
 #### November 2019
 Along with two other graduate students, I have been working to establish a new organization at Cornell for first-generation and low-income graduate students. This new organization, known as FiGLI, was officially registered in August. You can see what we are up to by visiting the [FiGLI Facebook page here](https://www.facebook.com/CornellFiGLI/). Excitingly, we have also been featured in various Cornell University news outlets:
 
@@ -28,3 +34,6 @@ Along with two other graduate students, I have been working to establish a new o
 
 #### April 2019
 We recently hosted a Microbiome Hackathon at Cornell. The event was designed to expose students to data science, computational biology, and questions of the microbiome field. To learn more about this fun event, [visit our website](http://www.microbiomehack.org), or read this great write up about the hackathon in the [Cornell Daily Sun!](https://cornellsun.com/2019/04/19/cancer-biology-machine-learning-and-creative-problem-solving-at-cornells-microbiome-hackathon/)
+
+#### September 2017
+I was honored to be named a [Cornell Graduate Dean's Scholar](https://gradschool.cornell.edu/diversity-inclusion/signature-initiatives/graduate-school-deans-scholars/) at the inaugural pinning ceremony. 
