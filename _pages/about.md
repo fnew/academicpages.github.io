@@ -24,7 +24,7 @@ I received the news that I've been awarded an NIH Research Fellowship to continu
 My review paper with Dr. Ilana Brito is out in [Annual Reviews Microbiology](https://www.annualreviews.org/doi/abs/10.1146/annurev-micro-012520-072314)! We review the many benefits of using metagenomic sequencing data, such as greater resolution of species/strains/functions, while also highlighting the challenges to metagenomic data analysis.
 
 #### November 2019
-Along with two other graduate students, I have been working to establish a new organization at Cornell for first-generation and low-income graduate students. This new organization, known as FiGLI, was officially registered in August. You can see what we are up to by visiting the [FiGLI Facebook page here](https://www.facebook.com/CornellFiGLI/). Excitingly, we have also been featured in various Cornell University news outlets:
+Along with two other graduate students, I have been working to establish a new organization at Cornell for first-generation and low-income graduate students. This new organization, known as Cornell's First Generation & Low Income Graduate Student organization, or FiGLI, was officially registered in August. You can see what we are up to by visiting the [FiGLI Facebook page here](https://www.facebook.com/CornellFiGLI/). Excitingly, we have also been featured in various Cornell University news outlets:
 
 * Cornell Chronical: [New Group Supports First Generation and Low Income Students](https://news.cornell.edu/stories/2019/11/new-group-supports-first-generation-and-low-income-students)
 
